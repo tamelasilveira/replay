@@ -1,7 +1,12 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { LinkPreview } from "@/components/ui/link-preview";
+/* eslint-disable , @next/next/no-img-element, react/no-unescaped-entities,  */
+/* eslint-disable,  @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+"use client"
+
+import React from "react"
+import { motion } from "framer-motion"
+
+import { LinkPreview } from "@/components/ui/link-preview"
 
 export function LinkPreviewReplay() {
   return (
@@ -27,5 +32,5 @@ export function LinkPreviewReplay() {
         for amazing Tailwind and Framer Motion components.
       </p>
     </div>
-  );
+  )
 }
