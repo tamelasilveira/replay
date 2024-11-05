@@ -1,6 +1,5 @@
-"use client";
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+"use client"
+
 import React, {
   ReactNode,
   createContext,
@@ -8,45 +7,48 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from "react"
+import { AnimatePresence, motion } from "framer-motion"
+
+import { cn } from "@/lib/utils"
 
 interface ModalContextType {
-  open: boolean;
-  setOpen: (open: boolean) => void;
+  open: boolean
+  setOpen: (open: boolean) => void
 }
 
-const ModalContext = createContext<ModalContextType | undefined>(undefined);
+const ModalContext = createContext<ModalContextType | undefined>(undefined)
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <ModalContext.Provider value={{ open, setOpen }}>
       {children}
     </ModalContext.Provider>
-  );
-};
+  )
+}
 
 export const useModal = () => {
-  const context = useContext(ModalContext);
+  const context = useContext(ModalContext)
   if (!context) {
-    throw new Error("useModal must be used within a ModalProvider");
+    throw new Error("useModal must be used within a ModalProvider")
   }
-  return context;
-};
+  return context
+}
 
 export function Modal({ children }: { children: ReactNode }) {
-  return <ModalProvider>{children}</ModalProvider>;
+  return <ModalProvider>{children}</ModalProvider>
 }
 
 export const ModalTrigger = ({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode
+  className?: string
 }) => {
-  const { setOpen } = useModal();
+  const { setOpen } = useModal()
   return (
     <button
       className={cn(
@@ -57,29 +59,29 @@ export const ModalTrigger = ({
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
 export const ModalBody = ({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode
+  className?: string
 }) => {
-  const { open } = useModal();
+  const { open } = useModal()
 
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "auto"
     }
-  }, [open]);
+  }, [open])
 
-  const modalRef = useRef(null);
-  const { setOpen } = useModal();
-  useOutsideClick(modalRef, () => setOpen(false));
+  const modalRef = useRef(null)
+  const { setOpen } = useModal()
+  useOutsideClick(modalRef, () => setOpen(false))
 
   return (
     <AnimatePresence>
@@ -135,29 +137,29 @@ export const ModalBody = ({
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
 export const ModalContent = ({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode
+  className?: string
 }) => {
   return (
     <div className={cn("flex flex-col flex-1 p-8 md:p-10", className)}>
       {children}
     </div>
-  );
-};
+  )
+}
 
 export const ModalFooter = ({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode
+  className?: string
 }) => {
   return (
     <div
@@ -168,8 +170,8 @@ export const ModalFooter = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
 const Overlay = ({ className }: { className?: string }) => {
   return (
@@ -187,11 +189,11 @@ const Overlay = ({ className }: { className?: string }) => {
       }}
       className={`fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}`}
     ></motion.div>
-  );
-};
+  )
+}
 
 const CloseIcon = () => {
-  const { setOpen } = useModal();
+  const { setOpen } = useModal()
   return (
     <button
       onClick={() => setOpen(false)}
@@ -214,8 +216,8 @@ const CloseIcon = () => {
         <path d="M6 6l12 12" />
       </svg>
     </button>
-  );
-};
+  )
+}
 
 // Hook to detect clicks outside of a component.
 // Add it in a separate file, I've added here for simplicity
@@ -227,17 +229,17 @@ export const useOutsideClick = (
     const listener = (event: any) => {
       // DO NOTHING if the element being clicked is the target element or their children
       if (!ref.current || ref.current.contains(event.target)) {
-        return;
+        return
       }
-      callback(event);
-    };
+      callback(event)
+    }
 
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
+    document.addEventListener("mousedown", listener)
+    document.addEventListener("touchstart", listener)
 
     return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
-    };
-  }, [ref, callback]);
-};
+      document.removeEventListener("mousedown", listener)
+      document.removeEventListener("touchstart", listener)
+    }
+  }, [ref, callback])
+}

@@ -1,6 +1,8 @@
-"use client";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+"use client"
+
+import Image from "next/image"
+
+import { cn } from "@/lib/utils"
 
 export default function CardDemo() {
   return (
@@ -38,5 +40,5 @@ export default function CardDemo() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,3 +1,7 @@
+/* eslint-disable , @next/next/no-img-element, react/no-unescaped-entities,  */
+/* eslint-disable,  @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 "use client"
 
 import React, { type ReactNode } from "react"

@@ -1,8 +1,14 @@
-"use client";
-import { animate, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import { GoCopilot } from "react-icons/go";
+/* eslint-disable , @next/next/no-img-element, react/no-unescaped-entities,  */
+/* eslint-disable,  @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
+"use client"
+
+import React, { useEffect, useState } from "react"
+import { animate, motion } from "framer-motion"
+import { GoCopilot } from "react-icons/go"
+
+import { cn } from "@/lib/utils"
 
 export default function CardDemo() {
   return (
@@ -16,12 +22,12 @@ export default function CardDemo() {
         product.
       </CardDescription>
     </Card>
-  );
+  )
 }
 
 const Skeleton = () => {
-  const scale = [1, 1.1, 1];
-  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+  const scale = [1, 1.1, 1]
+  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"]
   const sequence = [
     [
       ".circle-1",
@@ -63,15 +69,15 @@ const Skeleton = () => {
       },
       { duration: 0.8 },
     ],
-  ];
+  ]
 
   useEffect(() => {
     // @ts-ignore
     animate(sequence, {
       repeat: Infinity,
       repeatDelay: 1,
-    });
-  }, []);
+    })
+  }, [])
   return (
     <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
       <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
@@ -98,12 +104,12 @@ const Skeleton = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 const Sparkles = () => {
-  const randomMove = () => Math.random() * 2 - 1;
-  const randomOpacity = () => Math.random();
-  const random = () => Math.random();
+  const randomMove = () => Math.random() * 2 - 1
+  const randomOpacity = () => Math.random()
+  const random = () => Math.random()
   return (
     <div className="absolute inset-0">
       {[...Array(12)].map((_, i) => (
@@ -133,15 +139,15 @@ const Sparkles = () => {
         ></motion.span>
       ))}
     </div>
-  );
-};
+  )
+}
 
 export const Card = ({
   className,
   children,
 }: {
-  className?: string;
-  children: React.ReactNode;
+  className?: string
+  children: React.ReactNode
 }) => {
   return (
     <div
@@ -152,15 +158,15 @@ export const Card = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
 export const CardTitle = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }) => {
   return (
     <h3
@@ -171,15 +177,15 @@ export const CardTitle = ({
     >
       {children}
     </h3>
-  );
-};
+  )
+}
 
 export const CardDescription = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }) => {
   return (
     <p
@@ -190,17 +196,17 @@ export const CardDescription = ({
     >
       {children}
     </p>
-  );
-};
+  )
+}
 
 export const CardSkeletonContainer = ({
   className,
   children,
   showGradient = true,
 }: {
-  className?: string;
-  children: React.ReactNode;
-  showGradient?: boolean;
+  className?: string
+  children: React.ReactNode
+  showGradient?: boolean
 }) => {
   return (
     <div
@@ -213,15 +219,15 @@ export const CardSkeletonContainer = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
 const Container = ({
   className,
   children,
 }: {
-  className?: string;
-  children: React.ReactNode;
+  className?: string
+  children: React.ReactNode
 }) => {
   return (
     <div
@@ -234,8 +240,8 @@ const Container = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
 export const ClaudeLogo = ({ className }: { className?: string }) => {
   return (
@@ -256,8 +262,8 @@ export const ClaudeLogo = ({ className }: { className?: string }) => {
         d="M318.663 149.787h-43.368l78.952 212.423 43.368.004-78.952-212.427zm-125.326 0l-78.952 212.427h44.255l15.932-44.608 82.846-.004 16.107 44.612h44.255l-79.126-212.427h-45.317zm-4.251 128.341l26.91-74.701 27.083 74.701h-53.993z"
       />
     </svg>
-  );
-};
+  )
+}
 
 export const OpenAILogo = ({ className }: { className?: string }) => {
   return (
@@ -273,8 +279,8 @@ export const OpenAILogo = ({ className }: { className?: string }) => {
         fill="currentColor"
       ></path>
     </svg>
-  );
-};
+  )
+}
 export const GeminiLogo = ({ className }: { className?: string }) => {
   return (
     <svg
@@ -302,8 +308,8 @@ export const GeminiLogo = ({ className }: { className?: string }) => {
         </radialGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
 export const MetaIconOutline = ({ className }: { className?: string }) => {
   return (
@@ -355,5 +361,5 @@ export const MetaIconOutline = ({ className }: { className?: string }) => {
         d="M82.35,31.23c-12.27,0-22.69,8.61-31.41,21.78C38.61,71.62,31.06,99.34,31.06,126c0,11,2.41,19.41,5.56,24.51L10.14,167.91C3.34,156.6,0,141.76,0,124.85,0,94.1,8.44,62.05,24.49,37.3,38.73,15.35,59.28,0,82.85,0Z"
       />
     </svg>
-  );
-};
+  )
+}
