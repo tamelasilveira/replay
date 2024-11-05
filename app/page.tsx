@@ -1,11 +1,9 @@
-import {ReplayLandingPage} from '@/components/ReplayLandingPage'
-
+import { ReplayLandingPage } from "@/components/ReplayLandingPage"
 
 export default function LandingPage() {
   return (
-<div>
-      <ReplayLandingPage /></div>
+    <div>
+      <ReplayLandingPage />
+    </div>
   )
 }
-
-

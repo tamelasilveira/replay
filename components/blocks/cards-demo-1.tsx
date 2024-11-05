@@ -1,5 +1,6 @@
-"use client";
-import { cn } from "@/lib/utils";
+"use client"
+
+import { cn } from "@/lib/utils"
 
 export default function CardDemo() {
   return (
@@ -26,5 +27,5 @@ export default function CardDemo() {
         </div>
       </div>
     </div>
-  );
+  )
 }
